@@ -8,7 +8,7 @@ RUN go get
 RUN go build -ldflags="-s -w"
 RUN chmod +x simple-file-server
 
-FROM mback2k/alpine:latest
+FROM ghcr.io/mback2k/docker-alpine:latest
 RUN apk --no-cache --update upgrade && apk --no-cache add ca-certificates
 
 COPY --from=build /go/simple-file-server/simple-file-server /usr/local/bin/simple-file-server
